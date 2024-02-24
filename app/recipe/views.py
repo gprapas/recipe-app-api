@@ -24,5 +24,6 @@ class RecipeViewSet(viewsets.ModelViewSet):
         
         return self.serializer_class
     
+    #perform create automatically sets the user field to the current logged in user
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
